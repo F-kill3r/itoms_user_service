@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: user-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/user_service
+    username: root
+    password: mysql
+  jpa:
+    hibernate:
+      ddl-auto: create
+    open-in-view: true
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

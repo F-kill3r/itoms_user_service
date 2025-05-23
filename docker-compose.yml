@@ -1,0 +1,13 @@
+version: "4"
+services:
+  mysql:
+    image: mysql:8.3.0
+    container_name: mysql_user
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: user_service
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+
