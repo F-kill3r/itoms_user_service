@@ -4,10 +4,10 @@ services:
     image: mysql:8.3.0
     container_name: mysql_user
     environment:
-      MYSQL_ROOT_PASSWORD: mysql
-      MYSQL_DATABASE: user_service
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     ports:
-      - "3306:3306"
+      - "${MYSQL_PORT}:3306"
     volumes:
       - ./mysql:/var/lib/mysql
 
