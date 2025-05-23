@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class UserResponse {
     @Builder
@@ -15,7 +16,7 @@ public class UserResponse {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class UserCreateResponseDTO{
-        private long id;
+        private UUID id;
         private String name;
         private UserCategory category;
 
