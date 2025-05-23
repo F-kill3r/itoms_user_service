@@ -7,7 +7,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class UserResponse {
     @Builder
@@ -20,8 +20,9 @@ public class UserResponse {
         private UserCategory category;
 
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-        private LocalDate createdAt;
+        private LocalDateTime createdAt;
+
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-        private LocalDate updatedAt;
+        private LocalDateTime updatedAt;
     }
 }
