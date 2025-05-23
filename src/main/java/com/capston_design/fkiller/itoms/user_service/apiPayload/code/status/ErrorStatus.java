@@ -1,7 +1,7 @@
 package com.capston_design.fkiller.itoms.user_service.apiPayload.code.status;
 
-import com.capston_design.fkiller.itoms.service_desk.apiPayload.code.BaseErrorCode;
-import com.capston_design.fkiller.itoms.service_desk.apiPayload.code.ErrorReasonDTO;
+import com.capston_design.fkiller.itoms.user_service.apiPayload.code.BaseErrorCode;
+import com.capston_design.fkiller.itoms.user_service.apiPayload.code.ErrorReasonDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
@@ -43,7 +43,6 @@ public enum ErrorStatus implements BaseErrorCode {
                 .code(code)
                 .isSuccess(false)
                 .httpStatus(httpStatus)
-                .build()
-                ;
+                .build();
     }
 }
