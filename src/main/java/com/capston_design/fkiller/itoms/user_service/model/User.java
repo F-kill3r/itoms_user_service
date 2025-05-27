@@ -19,10 +19,16 @@ import java.util.UUID;
 @NoArgsConstructor
 public class User extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID id;
     private String name;
 
     @Enumerated(EnumType.STRING)
     private UserCategory category;
+
+    @PrePersist
+    public void assignUUID() {
+        if (this.id == null) {
+            this.id = UUID.randomUUID();
+        }
+    }
 }
