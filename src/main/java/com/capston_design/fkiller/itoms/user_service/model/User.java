@@ -20,13 +20,14 @@ import java.util.UUID;
 public class User extends BaseEntity {
     @Id
     private UUID id;
+
     private String name;
 
     @Enumerated(EnumType.STRING)
     private UserCategory category;
 
     @PrePersist
-    public void assignUUID() {
+    public void generateId() {
         if (this.id == null) {
             this.id = UUID.randomUUID();
         }
