@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 @RequiredArgsConstructor
@@ -24,5 +27,15 @@ public class UserService {
         user.setCategory(UserCategory.from(userRequest.category()));
 
         return userRepository.save(user);
+    }
+
+    @Transactional(readOnly = true)
+    public User getRandomOutsourcedUser() {
+        List<User> outsourced = userRepository.findByCategory(UserCategory.OUTSOURCED);
+        if (outsourced.isEmpty()) {
+            throw new NoSuchElementException("OUTSOURCED 유저가 없습니다.");
+        }
+        int idx = ThreadLocalRandom.current().nextInt(outsourced.size());
+        return outsourced.get(idx);
     }
 }

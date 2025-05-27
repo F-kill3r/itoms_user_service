@@ -8,6 +8,7 @@ public class UserConverter {
         return UserResponse.UserCreateResponseDTO.builder()
                 .id(user.getId())
                 .name(user.getName())
+                .category(user.getCategory())
                 .createdAt(user.getCreatedAt())
                 .updatedAt(user.getUpdatedAt())
                 .build();
