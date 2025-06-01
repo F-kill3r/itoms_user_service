@@ -28,7 +28,7 @@ public class UserController {
 
     @GetMapping("/randomMember")
     public ResponseEntity<ApiResponse<UserResponse.UserCreateResponseDTO>> getRandomUser(){
-        User user = userService.getRandomOutsourcedUser();
+        User user = userService.getRandomRequesterUser();
         var responseDTO = UserConverter.toUserResponseDTO(user);
         return ResponseEntity.ok(ApiResponse.onSuccess(responseDTO));
     }

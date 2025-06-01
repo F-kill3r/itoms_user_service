@@ -30,12 +30,12 @@ public class UserService {
     }
 
     @Transactional(readOnly = true)
-    public User getRandomOutsourcedUser() {
-        List<User> outsourced = userRepository.findByCategory(UserCategory.OUTSOURCED);
-        if (outsourced.isEmpty()) {
-            throw new NoSuchElementException("OUTSOURCED 유저가 없습니다.");
+    public User getRandomRequesterUser() {
+        List<User> requester = userRepository.findByCategory(UserCategory.REQUESTER);
+        if (requester.isEmpty()) {
+            throw new NoSuchElementException("Requester 유저가 없습니다.");
         }
-        int idx = ThreadLocalRandom.current().nextInt(outsourced.size());
-        return outsourced.get(idx);
+        int idx = ThreadLocalRandom.current().nextInt(requester.size());
+        return requester.get(idx);
     }
 }
