@@ -38,4 +38,24 @@ public class UserService {
         int idx = ThreadLocalRandom.current().nextInt(requester.size());
         return requester.get(idx);
     }
+
+    @Transactional(readOnly = true)
+    public User getRandomCreatorUser() {
+        List<User> creator = userRepository.findByCategory(UserCategory.CREATOR);
+        if (creator.isEmpty()) {
+            throw new NoSuchElementException("Creator 유저가 없습니다.");
+        }
+        int idx = ThreadLocalRandom.current().nextInt(creator.size());
+        return creator.get(idx);
+    }
+
+    @Transactional(readOnly = true)
+    public User getRandomChargerUser() {
+        List<User> charger = userRepository.findByCategory(UserCategory.CHARGER);
+        if (charger.isEmpty()) {
+            throw new NoSuchElementException("Charger 유저가 없습니다.");
+        }
+        int idx = ThreadLocalRandom.current().nextInt(charger.size());
+        return charger.get(idx);
+    }
 }
