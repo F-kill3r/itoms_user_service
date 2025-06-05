@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
         info = @Info(
                 title = "Service Desk API Document",
                 version = "1.0",
-                description = "Itoms Service Desk 기능을 수행하는 API document 페이지 입니다"
+                description = "Itoms User Service 기능을 수행하는 API document 페이지 입니다"
         )
 )
 public class SwaggerConfig {
