@@ -27,23 +27,23 @@ public class UserController {
     }
 
     @GetMapping("/randomRequester")
-    public ResponseEntity<ApiResponse<UserResponse.UserCreateResponseDTO>> getRandomUser(){
+    public ResponseEntity<ApiResponse<UserResponse.UserRandomResponseDTO>> getRequesterUser(){
         User user = userService.getRandomRequesterUser();
-        var responseDTO = UserConverter.toUserResponseDTO(user);
+        var responseDTO = UserConverter.toRandomUserResponseDTO(user);
         return ResponseEntity.ok(ApiResponse.onSuccess(responseDTO));
     }
 
     @GetMapping("/randomCreator")
-    public ResponseEntity<ApiResponse<UserResponse.UserCreateResponseDTO>> getCreatorUser(){
+    public ResponseEntity<ApiResponse<UserResponse.UserRandomResponseDTO>> getCreatorUser(){
         User user = userService.getRandomCreatorUser();
-        var responseDTO = UserConverter.toUserResponseDTO(user);
+        var responseDTO = UserConverter.toRandomUserResponseDTO(user);
         return ResponseEntity.ok(ApiResponse.onSuccess(responseDTO));
     }
 
     @GetMapping("/randomCharger")
-    public ResponseEntity<ApiResponse<UserResponse.UserCreateResponseDTO>> getChargerUser(){
+    public ResponseEntity<ApiResponse<UserResponse.UserRandomResponseDTO>> getChargerUser(){
         User user = userService.getRandomChargerUser();
-        var responseDTO = UserConverter.toUserResponseDTO(user);
+        var responseDTO = UserConverter.toRandomUserResponseDTO(user);
         return ResponseEntity.ok(ApiResponse.onSuccess(responseDTO));
     }
 }

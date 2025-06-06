@@ -13,4 +13,14 @@ public class UserConverter {
                 .updatedAt(user.getUpdatedAt())
                 .build();
     }
+
+    public static UserResponse.UserRandomResponseDTO toRandomUserResponseDTO(User user) {
+        return UserResponse.UserRandomResponseDTO.builder()
+                .id(user.getId())
+                .name(user.getName())
+                .category(user.getCategory())
+                .createdAt(user.getCreatedAt())
+                .updatedAt(user.getUpdatedAt())
+                .build();
+    }
 }
