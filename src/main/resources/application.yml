@@ -9,3 +9,7 @@ spring:
     multipart:
       max-file-size: 10GB
       max-request-size: 10GB
+
+  grpc:
+    server:
+      port: ${GRPC_PORT}
